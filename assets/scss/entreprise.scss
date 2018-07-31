@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+$color-foncer: #006633;
+$color-claire: #93c01f;
+
+p {
+
+  $color-foncer: #006633;
+  $color-claire: #93c01f;
+}
+
+body {
+  font: 400 15px Lato, sans-serif;
+  line-height: 1.8;
+  color: #545454;
+  text-align: justify;
+}
+
+
+h2 {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: $color-foncer;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+h4 {
+  font-size: 19px;
+  line-height: 1.375em;
+  color: #303030;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+#vous{
+  text-align: center;
+  padding: 3vh;
+  font-family: 'Abril Fatface', cursive;
+
+}
+
+div.container-fluid.vous{
+  margin-bottom: 10vh;
+}
+.light{
+  color:white;
+}
+.container-fluid {
+  padding: 60px 50px;
+}
+.bg-grey {
+  background-image: url("/images/abstract-21851_1920.jpg");
+}
+.bg{
+  background-color: #ececec;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.39);
+  border-top: 1px solid rgba(0, 0, 0, 0.39);
+}
+.vous{
+  margin-bottom: -150px;
+}
+
+.img-thumbnail.ent {
+  margin-top: 9vw;
+}
+
+.slide {
+  animation-name: slide;
+  -webkit-animation-name: slide;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  visibility: visible;
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+
+
+
+
+

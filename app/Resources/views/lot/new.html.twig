@@ -1,0 +1,70 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+
+    <h1 class="text-center green-text">Liste des Lots</h1>
+<div class="table-responsive">
+        <table class="table">
+
+            <!--Table head-->
+            <thead>
+            <tr>
+
+
+                <th scope="col">numero</th>
+                <th scope="col">Surface</th>
+                <th scope="col">Etage</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Reference</th>
+                <th scope="col">Tantieme</th>
+                <th scope="col">Voir</th>
+                <th scope="col">Modifier</th>
+            </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+    {% for lot in lots %}
+            <tbody>
+            <tr>
+
+
+                <td>{{ lot.numero }}</td>
+                <td>{{ lot.surface }}</td>
+                <td>{{ lot.etage }}</td>
+                <td><a href="#myModal" role="button" ><img src="/images/lot/{{ lot.photo }}" width="100" height="auto"></a></td>
+                <td>{{ lot.reference }}</td>
+                <td>{{ lot.tantieme }}</td>
+                <td><a href="{{ path('lot_show', { 'id': lot.id }) }}">Voir</a></td>
+                <td><a href="{{ path('lot_edit', { 'id': lot.id }) }}">Modifier</a></td>
+            </tr>
+
+            </tbody>
+    {% endfor %}
+            {{ form_start(form) }}
+            <tbody id="addFormLot">
+            <tr>
+                <td>{{ form_widget(form.numero, { 'attr': {'class': 'custom-select','placeholder': "Numero"} }) }}</td>
+                <td>{{ form_widget(form.surface, { 'attr': {'class': 'custom-select','placeholder': "Surface"} }) }}</td>
+                <td>{{ form_widget(form.etage, { 'attr': {'class': 'custom-select','placeholder': "Etage"} }) }}</td>
+                <td>{{ form_widget(form.imageFile, { 'attr': {'class': 'custom-select'} }) }}</td>
+                <td>{{ form_widget(form.reference, { 'attr': {'class': 'custom-select','placeholder': "Référence"} }) }}</td>
+                <td>{{ form_widget(form.tantieme, { 'attr': {'class': 'custom-select','placeholder': "Tantieme"} }) }}</td>
+                <td>{{ form_widget(form.appartement, { 'attr': {'class': 'custom-select'} }) }}</td>
+                <td><button type="submit" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-ok"></i></button></td>
+            </tr>
+            {{ form_end(form) }}
+            </tbody>
+
+            <!--Table body-->
+
+
+        </table>
+</div>
+    <!--Table-->
+    <div id="btnAddLot" class="text-right">
+        <button type="submit" class="btn btn-success btn-lg" title="Ajouter un lot"><i class="glyphicon glyphicon-plus"></i> </button>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Contact</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact.id }}</td>
+            </tr>
+            <tr>
+                <th>Vousetes</th>
+                <td>{{ contact.vousEtes }}</td>
+            </tr>
+            <tr>
+                <th>Voussouhaitez</th>
+                <td>{{ contact.vousSouhaitez }}</td>
+            </tr>
+            <tr>
+                <th>Civilitecontact</th>
+                <td>{{ contact.civiliteContact }}</td>
+            </tr>
+            <tr>
+                <th>Nomcontact</th>
+                <td>{{ contact.nomContact }}</td>
+            </tr>
+            <tr>
+                <th>Prenomcontact</th>
+                <td>{{ contact.prenomContact }}</td>
+            </tr>
+            <tr>
+                <th>Emailcontact</th>
+                <td>{{ contact.emailContact }}</td>
+            </tr>
+            <tr>
+                <th>Phonecontact</th>
+                <td>{{ contact.phoneContact }}</td>
+            </tr>
+            <tr>
+                <th>Adressecontact</th>
+                <td>{{ contact.adresseContact }}</td>
+            </tr>
+            <tr>
+                <th>Nomsyndic</th>
+                <td>{{ contact.nomSyndic }}</td>
+            </tr>
+            <tr>
+                <th>Adressesyndic</th>
+                <td>{{ contact.adresseSyndic }}</td>
+            </tr>
+            <tr>
+                <th>Phonesyndic</th>
+                <td>{{ contact.phoneSyndic }}</td>
+            </tr>
+            <tr>
+                <th>Emailsyndic</th>
+                <td>{{ contact.emailSyndic }}</td>
+            </tr>
+            <tr>
+                <th>Nomresidence</th>
+                <td>{{ contact.nomResidence }}</td>
+            </tr>
+            <tr>
+                <th>Adresseresidence</th>
+                <td>{{ contact.adresseResidence }}</td>
+            </tr>
+            <tr>
+                <th>Dateag</th>
+                <td>{% if contact.dateAG %}{{ contact.dateAG|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Nblogement</th>
+                <td>{{ contact.nblogement }}</td>
+            </tr>
+            <tr>
+                <th>Immeuble</th>
+                <td>{{ contact.immeuble }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ contact.message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('contact_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('contact_edit', { 'id': contact.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+<h1>Description immeuble</h1>
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Id</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
+                <th>Plan</th>
+
+            </tr>
+            <tr>
+                <td>{{ immeuble.id }}</td>
+                <td>{{ immeuble.adresse }}</td>
+                <td>{{ immeuble.codePostal }}</td>
+                <td>{{ immeuble.ville }}</td>
+                <td><a href="#myModal" role="button" ><img src="/images/immeuble/{{ immeuble.plan }}" width="100" height="auto"></a></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('immeuble_new') }}">Liste des immeubles</a>
+        </li>
+        <li>
+            <a href="{{ path('immeuble_edit', { 'id': immeuble.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer" class="supp">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
+            </tr>
+            <tr>
+                <td>{{ coPro.id }}</td>
+                <td>{{ coPro.name }}</td>
+                <td>{{ coPro.adresse }}</td>
+                <td>{{ coPro.codePostal }}</td>
+                <td>{{ coPro.ville }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('copro_index') }}">Liste des copropriétés</a>
+        </li>
+        <li>
+            <a href="{{ path('copro_edit', { 'id': coPro.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="supp">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

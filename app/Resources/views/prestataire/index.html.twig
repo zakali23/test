@@ -1,0 +1,44 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+    <h1>Prestataires list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Tel</th>
+                <th>Mail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for prestataire in prestataires %}
+            <tr>
+                <td><a href="{{ path('prestataire_show', { 'id': prestataire.id }) }}">{{ prestataire.id }}</a></td>
+                <td>{{ prestataire.nom }}</td>
+                <td>{{ prestataire.adresse }}</td>
+                <td>{{ prestataire.tel }}</td>
+                <td>{{ prestataire.mail }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('prestataire_show', { 'id': prestataire.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('prestataire_edit', { 'id': prestataire.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('prestataire_new') }}">Create a new prestataire</a>
+        </li>
+    </ul>
+{% endblock %}

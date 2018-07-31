@@ -1,0 +1,51 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+    <h1>Compteur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Type de Compteur </th>
+                <td>{{ compteur.categorieCompteur }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ compteur.marque }}</td>
+            </tr>
+            <tr>
+                <th>Référence</th>
+                <td>{{ compteur.reference }}</td>
+            </tr>
+            <tr>
+                <th>Serialnumber</th>
+                <td>{{ compteur.serialNumber }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><a href="#myModal" role="button" ><img src="/images/compteur/{{ compteur.photo }}" width="100" height="auto"></a></td>
+            </tr>
+            <tr>
+                <th>Dateinstallation</th>
+                <td>{% if compteur.dateInstallation %}{{ compteur.dateInstallation|date('d-m-Y') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateachat</th>
+                <td>{% if compteur.dateAchat %}{{ compteur.dateAchat|date('d-m-Y') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compteur_index') }}">Liste des compteurs</a>
+        </li>
+        <li>
+            <a href="{{ path('compteur_edit', { 'id': compteur.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="supp">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

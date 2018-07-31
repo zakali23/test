@@ -1,0 +1,67 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/user.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/head_admin.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="container">
+        <p class="connect"> Dernière connexion le {{ app.user.lastLogin|date("d/m/Y") }}</p>
+        <div class="row" style="display: flex;" id="cardForUser">
+            <div id="profil" class="col-6 card">
+                <div class="card-header">
+                    <h3>Mon Profil</h3>
+                </div>
+                <ul>
+                    <li><span>Prénom :</span> {{ app.user.firstname }}</li>
+                    <li><span>Nom :</span> {{ app.user.lastname }}</li>
+                    <li><span>Adresse :</span> {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
+                    <li><span>Téléphone :</span> {{ app.user.phone }}</li>
+                    <li><span>Email:</span> {{ app.user.email }}</li>
+                </ul>
+
+                <a href="/profile/edit"><button> Modifier mon profil</button></a>
+            </div>
+            <div class="col-6 card">
+
+                {% if not is_granted(['ROLE_ADMIN', 'ROLE_TECHNICIEN']) %}
+                    <div class="card-header">
+                        <h3>Ma copropriété</h3>
+                    </div>
+                    <ul>
+
+                        {% for user in user.copros %}
+
+
+                        <li><span>Nom : {{ user.name }}</span></li>
+                        <li><span>Adresse : {{ user.adresse }} {{ user.codePostal }} {{ user.ville }}</span> </li>
+
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {% if is_granted(['ROLE_ADMIN', 'ROLE_TECHNICIEN']) %}
+                    <div class="card-header">
+                        <h3>Notifications</h3>
+                    </div>
+                    <ul>
+                        <li><span>Erreurs compteur</span></li>
+                        <li><span>Fichiers reçus</span> </li>
+                    </ul>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+{% endblock %}

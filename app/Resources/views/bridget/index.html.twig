@@ -1,0 +1,43 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+    <h1>Bridgets list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Serialnumber</th>
+                <th>Dateinstallation</th>
+                <th>Dateachat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bridget in bridgets %}
+            <tr>
+                <td><a href="{{ path('bridget_show', { 'id': bridget.id }) }}">{{ bridget.id }}</a></td>
+                <td>{{ bridget.serialNumber }}</td>
+                <td>{% if bridget.dateInstallation %}{{ bridget.dateInstallation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if bridget.dateAchat %}{{ bridget.dateAchat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('bridget_show', { 'id': bridget.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('bridget_edit', { 'id': bridget.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('bridget_new') }}">Create a new bridget</a>
+        </li>
+    </ul>
+{% endblock %}

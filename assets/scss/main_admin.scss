@@ -1,0 +1,21 @@
+$color-foncer: #006633;
+$color-claire: #93c01f;
+
+.hello{
+  text-align: right;
+}
+
+li {
+  list-style-type: none;
+}
+
+.card{
+  margin: 1vw;
+  padding: 1vw;
+  width: 100%;
+  border: 1px solid $color-claire;
+}
+
+h2{
+  color: $color-claire !important;
+}

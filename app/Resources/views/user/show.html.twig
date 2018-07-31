@@ -1,0 +1,64 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+
+
+<div class="container">
+
+    <h1 style="text-align: center">Informations  {{ user.typeLocProps.current }}</h1>
+    <div class="row" style="display: flex;">
+
+
+        <div class="col card">
+            <ul>
+
+                <li><h2>Informations personnelles</h2></li>
+                <li><span>Prénom:</span> {{ user.firstname }}</li>
+                <li><span>Nom: </span>{{ user.lastname }}</li>
+                <li><span>Adresse: </span>{{ user.adresse }}</li>
+                <li><span>Code postal: </span>{{ user.codePostal }}</li>
+                <li><span>Ville: </span>{{ user.ville }}</li>
+                <li><span>Email: </span>{{ user.email }}</li>
+                <li><span>Email 2: </span>{{ user.email2 }}</li>
+                <li><span>Téléphone: </span> {{ user.phone }}</li>
+                <li><span>Téléphone 2: </span> {{ user.phone2 }}</li>
+
+            </ul>
+
+        </div>
+
+        <div class="col card">
+            <ul>
+
+                <li><h2>Informations immo</h2></li>
+                <li><span>Copropriété:  </span>{% for copro in user.copros %}{{ copro.name }}{% endfor %}</li>
+                <li><span>Gestionnaire: </span>{% for syndic in user.syndics %}{{ syndic.nom }}{% endfor %}{% for associationCoPro in user.associationCoPros %}{{ associationCoPro.name }}{% endfor %}</li>
+                <li><span>Immeuble: </span></li>
+                <li><span>Lot: </span>{% for lot in user.lots %}{{ lot.numero }}{% endfor %}</li>
+                <li><span>Date d'entrée:</span> {% if user.dateEntree %}{{ user.dateEntree|date('d-m-Y') }}{% endif %}</li>
+                <li><span>Date de sortie:</span> {% if user.dateSortie %}{{ user.dateSortie|date('d-m-Y') }}{% endif %}</li>
+
+
+                <li><h2>Informations matériel</h2></li>
+                <li><span>Installation compteur: </span></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+        <ul>
+            <li>
+                <a href="{{ path('user_index') }}">Liste des utilisateurs</a>
+            </li>
+            <li>
+                <a href="{{ path('user_edit', { 'id': user.id }) }}">Modifier</a>
+            </li>
+        </ul>
+
+</div>
+
+
+
+
+{% endblock %}

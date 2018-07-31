@@ -1,0 +1,420 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * devis
+ *
+ * @ORM\Table(name="devis")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\devisRepository")
+ */
+class devis
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vous_etes", type="string", length=255)
+     */
+    private $vousEtes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vous_souhaitez", type="string", length=255)
+     */
+    private $vousSouhaitez;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="Civilit�e", type="string", length=20, nullable=true)
+     */
+    private $civilit�e;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="nomContact", type="string", length=255, nullable=true)
+     */
+    private $nomContact;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="prenomContact", type="string", length=255, nullable=true)
+     */
+    private $prenomContact;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="emailContact", type="string", length=255, nullable=true)
+     */
+    private $emailContact;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="telephoneContact", type="string", length=30, nullable=true)
+     */
+    private $telephoneContact;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="adresseContact", type="text", nullable=true)
+     */
+    private $adresseContact;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomResidence", type="string", length=255)
+     */
+    private $nomResidence;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresseResidence", type="text")
+     */
+    private $adresseResidence;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateAG", type="date")
+     */
+    private $dateAG;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nbLogements", type="string", length=255)
+     */
+    private $nbLogements;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="immeuble", type="string", length=255)
+     */
+    private $immeuble;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="message", type="text")
+     */
+    private $message;
+
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set vousEtes.
+     *
+     * @param string $vousEtes
+     *
+     * @return devis
+     */
+    public function setVousEtes($vousEtes)
+    {
+        $this->vousEtes = $vousEtes;
+
+        return $this;
+    }
+
+    /**
+     * Get vousEtes.
+     *
+     * @return string
+     */
+    public function getVousEtes()
+    {
+        return $this->vousEtes;
+    }
+
+    /**
+     * Set vousSouhaitez.
+     *
+     * @param string $vousSouhaitez
+     *
+     * @return devis
+     */
+    public function setVousSouhaitez($vousSouhaitez)
+    {
+        $this->vousSouhaitez = $vousSouhaitez;
+
+        return $this;
+    }
+
+    /**
+     * Get vousSouhaitez.
+     *
+     * @return string
+     */
+    public function getVousSouhaitez()
+    {
+        return $this->vousSouhaitez;
+    }
+
+    /**
+     * Set civilit�e.
+     *
+     * @param string|null $civilit�e
+     *
+     * @return devis
+     */
+    public function setCivilit�e($civilit�e = null)
+    {
+        $this->civilit�e = $civilit�e;
+
+        return $this;
+    }
+
+    /**
+     * Get civilit�e.
+     *
+     * @return string|null
+     */
+    public function getCivilit�e()
+    {
+        return $this->civilit�e;
+    }
+
+    /**
+     * Set nomContact.
+     *
+     * @param string|null $nomContact
+     *
+     * @return devis
+     */
+    public function setNomContact($nomContact = null)
+    {
+        $this->nomContact = $nomContact;
+
+        return $this;
+    }
+
+    /**
+     * Get nomContact.
+     *
+     * @return string|null
+     */
+    public function getNomContact()
+    {
+        return $this->nomContact;
+    }
+
+    /**
+     * Set prenomContact.
+     *
+     * @param string|null $prenomContact
+     *
+     * @return devis
+     */
+    public function setPrenomContact($prenomContact = null)
+    {
+        $this->prenomContact = $prenomContact;
+
+        return $this;
+    }
+
+    /**
+     * Get prenomContact.
+     *
+     * @return string|null
+     */
+    public function getPrenomContact()
+    {
+        return $this->prenomContact;
+    }
+
+    /**
+     * Set emailContact.
+     *
+     * @param string|null $emailContact
+     *
+     * @return devis
+     */
+    public function setEmailContact($emailContact = null)
+    {
+        $this->emailContact = $emailContact;
+
+        return $this;
+    }
+
+    /**
+     * Get emailContact.
+     *
+     * @return string|null
+     */
+    public function getEmailContact()
+    {
+        return $this->emailContact;
+    }
+
+    /**
+     * Set telephoneContact.
+     *
+     * @param string|null $telephoneContact
+     *
+     * @return devis
+     */
+    public function setTelephoneContact($telephoneContact = null)
+    {
+        $this->telephoneContact = $telephoneContact;
+
+        return $this;
+    }
+
+    /**
+     * Get telephoneContact.
+     *
+     * @return string|null
+     */
+    public function getTelephoneContact()
+    {
+        return $this->telephoneContact;
+    }
+
+    /**
+     * Set adresseContact.
+     *
+     * @param string|null $adresseContact
+     *
+     * @return devis
+     */
+    public function setAdresseContact($adresseContact = null)
+    {
+        $this->adresseContact = $adresseContact;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseContact.
+     *
+     * @return string|null
+     */
+    public function getAdresseContact()
+    {
+        return $this->adresseContact;
+    }
+
+    /**
+     * Set nomResidence.
+     *
+     * @param string $nomResidence
+     *
+     * @return devis
+     */
+    public function setNomResidence($nomResidence)
+    {
+        $this->nomResidence = $nomResidence;
+
+        return $this;
+    }
+
+    /**
+     * Get nomResidence.
+     *
+     * @return string
+     */
+    public function getNomResidence()
+    {
+        return $this->nomResidence;
+    }
+
+    /**
+     * Set adresseResidence.
+     *
+     * @param string $adresseResidence
+     *
+     * @return devis
+     */
+    public function setAdresseResidence($adresseResidence)
+    {
+        $this->adresseResidence = $adresseResidence;
+
+        return $this;
+    }
+
+    /**
+     * Get adresseResidence.
+     *
+     * @return string
+     */
+    public function getAdresseResidence()
+    {
+        return $this->adresseResidence;
+    }
+
+    /**
+     * Set dateAG.
+     *
+     * @param \DateTime $dateAG
+     *
+     * @return devis
+     */
+    public function setDateAG($dateAG)
+    {
+        $this->dateAG = $dateAG;
+
+        return $this;
+    }
+
+    /**
+     * Get dateAG.
+     *
+     * @return \DateTime
+     */
+    public function getDateAG()
+    {
+        return $this->dateAG;
+    }
+
+    /**
+     * Set nbLogements.
+     *
+     * @param string $nbLogements
+     *
+     * @return devis
+     */
+    public function setNbLogements($nbLogements)
+    {
+        $this->nbLogements = $nbLogements;
+
+        return $this;
+    }
+
+    /**
+     * Get nbLogements.
+     *
+     * @return string
+     */
+    public function getNbLogements()
+    {
+        return $this->nbLogements;
+    }
+}

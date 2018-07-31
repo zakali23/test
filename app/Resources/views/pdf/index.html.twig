@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container-fluid">
+
+                                            <!-- Logo de l'entreprise -->
+
+    <div class="row">
+        <div class="col-6">
+            <p style="color: white;">.</p>
+            <hr style="margin-left: 0" width="400" size="1" color="#da328a">
+                <div style="font-family:Open Sans, Verdana,sans-serif; font-size: 20px; line-height: 20px">
+                    <img moz-do-not-send="false" height="50" src="https://image.noelshack.com/fichiers/2018/30/4/1532597383-logo7.jpg">
+                    <br>
+                    <br>
+                    <p style="font-family:Open Sans, Verdana,sans-serif">
+                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/122999adresse.png" style="width:13px;height:13px;margin-right:5px">
+                        Caldex - 52 av du repos - Mulhouse
+                    </p>
+
+                    <p style="font-family:Open Sans, Verdana,sans-serif">
+                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/261601phone.png" style="width:13px;height:13px;margin-right:5px">                     03 88 81 99 99 <br>
+                    </p>
+
+                    <p style="font-family:Open Sans, Verdana,sans-serif;color:black;text-decoration:none">
+                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/863867mail.png" style="width:13px;height:13px;margin-right:5px">
+                        caldex67@gmail.com<br>
+                    </p>
+
+                    <a  href="http://ubicentrex.fr" style="color:#da328a;text-decoration:none">
+                        <img moz-do-not-send="false" src="http://img11.hostingpics.net/pics/417739site.png" style="width:13px;height:13px;margin-right:5px">
+                        caldex.fr
+                    </a>
+                </div>
+            <hr style="margin-left: 0" width="400" size="1" color="#0086b1">
+        </div>
+
+
+
+                    <!-- Informations personnelles du client -->
+
+                    <ul style="list-style-type: none; margin-top: 40px; margin-left: 360px">
+                        <li>Information client :</li>
+                        <br>
+                        <li><span>Prénom :</span> {{ app.user.firstname }}</li>
+                        <li><span>Nom :</span> {{ app.user.lastname }}</li>
+                        <li><span>Adresse :</span> {{ app.user.adresse }} {{ app.user.codePostal }} {{ app.user.ville }}</li>
+                        <li><span>Téléphone :</span>
+                            {% set phoneNumber = app.user.phone|split ('', 2) %}
+                            {% set formattedString = phoneNumber|join('.') %}
+                            {{ formattedString }}
+                        </li>
+                        <li><span>Email:</span> {{ app.user.email }}</li>
+                    </ul>
+
+
+    </div>
+        <!-- Contenu de la facture -->
+
+        <aside class="row">
+
+            <div style="margin-top: 120px" class="col-12">
+                <h1 class="text-center">Consommation :</h1>
+
+                <h5 class="text-center">Veuillez trouvez ci-dessous votre consommation personnelle </h5>
+
+            </div>
+
+        </aside>
+
+        <section style="margin-top: 100px" class="row">
+
+            <div class="col-12">
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Calorimètre (n° de série)</th>
+                        <th>date d'installation</th>
+                        <th>Mois de consommation</th>
+                        <th>Total consommation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345678</td>
+                            <td>10/04/2018</td>
+                            <td>Juillet</td>
+                            <td>24,3</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+
+</div>
+
+
+
+{% endblock %}
+
+{% block stylesheets %}
+
+    <style>
+
+        td, th{
+            font-size: 30px !important;
+        }
+
+        li{
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+    </style>
+
+{% endblock %}

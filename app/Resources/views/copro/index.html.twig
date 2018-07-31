@@ -1,0 +1,57 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+<h1 class="text-center green-text">Liste des copropriétés</h1>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Code Postal</th>
+                <th scope="col">Ville</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th scope="col">Actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+    {% if is_granted('ROLE_ADMIN')%}
+        {% for coPro in coPros %}
+            <tr>
+                <td><a href="{{ path('copro_show', { 'id': coPro.id }) }}">{{ coPro.id }}</a></td>
+                <td>{{ coPro.name }}</td>
+                <td>{{ coPro.adresse }}</td>
+                <td>{{ coPro.codePostal }}</td>
+                <td>{{ coPro.ville }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('copro_show', { 'id': coPro.id }) }}">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('copro_edit', { 'id': coPro.id }) }}">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+
+    {% elseif is_granted('ROLE_GESTION') %}
+        {% for coPro in user.coPros %}
+
+            <tr>
+                <td><a href="{{ path('copro_show', { 'id': coPro.id }) }}">{{ coPro.id }}</a></td>
+                <td>{{ coPro.name }}</td>
+                <td>{{ coPro.adresse }}</td>
+                <td>{{ coPro.codePostal }}</td>
+                <td>{{ coPro.ville }}</td>
+
+            </tr>
+        {% endfor %}
+    {% endif %}
+        </tbody>
+    </table>
+
+{% endblock %}

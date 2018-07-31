@@ -1,0 +1,64 @@
+<div class="card">
+<h1 class="text-center green-text">Liste des radiateurs</h1>
+<div class="table-responsive">
+    <table class="table">
+
+        <!--Table head-->
+        <thead>
+            <tr>
+                <th scope="col">Modèle</th>
+                <th width="130px" scope="col">Type</th>
+                <th scope="col">Profondeur</th>
+                <th width="90px" scope="col">Hauteur</th>
+                <th scope="col">Longueur [m]</th>
+                <th scope="col">Pouvoir émissif</th>
+                <th scope="col">Puissance Nominale</th>
+                <th scope="col">Voir</th>
+                <th scope="col">Modifier</th>
+
+            </tr>
+        </thead>
+
+
+        <!--Table body-->
+        {% for radiateur in radiateurs %}
+        <tbody>
+            <tr>
+                <td>{{ radiateur.modele }}</td>
+                <td>{{ radiateur.type }}</td>
+                <td>{{ radiateur.profondeur }}</td>
+                <td>{{ radiateur.hauteur }}</td>
+                <td>{{ radiateur.longueur }}</td>
+                <td>{{ radiateur.regimeDimension }}</td>
+                <td>{{ radiateur.puissanceDeltaT50 }}</td>
+                <td><a href="{{ path('radiateur_show', { 'id': radiateur.id }) }}">Voir</a></td>
+                <td><a href="{{ path('radiateur_edit', { 'id': radiateur.id }) }}">Modifier</a></td>
+            </tr>
+            </tbody>
+        {% endfor %}
+
+
+
+        {{ form_start(form) }}
+        <tbody id="addFormLot">
+        <tr>
+            
+            <td>{{ form_widget(form.modele, { 'attr': {'class': 'custom-select','placeholder': "modele"} }) }}</td>
+            <td>{{ form_widget(form.type, { 'attr': {'class': 'custom-select','placeholder': "type"} }) }}</td>
+            <td>{{ form_widget(form.profondeur, { 'attr': {'class': 'custom-select','placeholder': "profondeur"} }) }}</td>
+            <td>{{ form_widget(form.hauteur, { 'attr': {'class': 'custom-select','placeholder': "hauteur"} }) }}</td>
+            <td>{{ form_widget(form.longueur, { 'attr': {'class': 'custom-select','placeholder': "longueur"} }) }}</td>
+            <td>{{ form_widget(form.regimeDimension, { 'attr': {'class': 'custom-select','placeholder': "regimeDimension"} }) }}</td>
+            <td>{{ form_widget(form.puissanceDeltaT50, { 'attr': {'class': 'custom-select','placeholder': "puissance"} }) }}</td>
+            <td><button type="submit" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-ok"></i></button></td>
+        </tr>
+        {{ form_end(form) }}
+
+    </table>
+</div>
+
+
+<div id="btnAddLot" class="text-right">
+    <button type="submit" class="btn btn-success btn-lg" title="Ajouter un lot"><i class="glyphicon glyphicon-plus"></i> </button>
+</div>
+</div>

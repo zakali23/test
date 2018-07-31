@@ -1,0 +1,17 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+<div id="envoiMailMdp" "container-fluid">
+   <div class="col-md-8 offset-md-2">
+    <h1 class="text-center green-text">Email Envoyé</h1>
+        <div class="card card-body">
+<p class="card-text text-center">
+{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+</p>
+</div>
+   </div>
+</div>
+{% endblock %}

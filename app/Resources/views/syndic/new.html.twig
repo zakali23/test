@@ -1,0 +1,14 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+    <h1>Création Syndicat</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Créer" class="new"/>
+    {{ form_end(form) }}
+
+
+    <br><a href="{{ path('syndic_index') }}">Liste des syndicats</a>
+
+{% endblock %}

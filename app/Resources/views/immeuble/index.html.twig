@@ -1,0 +1,42 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+    <h1>Immeubles</h1>
+
+    <table class="table">
+        <thead>
+
+            <tr>
+                <th>Id</th>
+                <th>Adresse</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Plan</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+        <tbody>
+        {% for immeuble in immeubles %}
+            <tr>
+                <td><a href="{{ path('immeuble_show', { 'id': immeuble.id }) }}">{{ immeuble.id }}</a></td>
+                <td>{{ immeuble.adresse }}</td>
+                <td>{{ immeuble.codePostal }}</td>
+                <td>{{ immeuble.ville }}</td>
+                <td>{{ immeuble.plan }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('immeuble_show', { 'id': immeuble.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('immeuble_edit', { 'id': immeuble.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

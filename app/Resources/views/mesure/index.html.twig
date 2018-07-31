@@ -1,0 +1,36 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+    <h1>Mesures list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mesure in mesures %}
+            <tr>
+                <td><a href="{{ path('mesure_show', { 'id': mesure.id }) }}">{{ mesure.id }}</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('mesure_show', { 'id': mesure.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('mesure_edit', { 'id': mesure.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mesure_new') }}">Create a new mesure</a>
+        </li>
+    </ul>
+{% endblock %}

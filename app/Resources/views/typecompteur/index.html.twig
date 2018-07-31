@@ -1,0 +1,38 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+    <h1>Typecompteurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeCompteur in typeCompteurs %}
+            <tr>
+                <td><a href="{{ path('typecompteur_show', { 'id': typeCompteur.id }) }}">{{ typeCompteur.id }}</a></td>
+                <td>{{ typeCompteur.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('typecompteur_show', { 'id': typeCompteur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('typecompteur_edit', { 'id': typeCompteur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('typecompteur_new') }}">Create a new typeCompteur</a>
+        </li>
+    </ul>
+{% endblock %}

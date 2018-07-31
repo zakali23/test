@@ -1,0 +1,58 @@
+{% extends "admin/base_admin.html.twig"%}
+
+
+{% block body %}
+    <table class="table">
+
+        <!--Table head-->
+        <thead>
+        <tr>
+
+
+            <th scope="col">nom</th>
+            <th scope="col">Surface</th>
+            <th scope="col">Lot</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Voir</th>
+            <th scope="col">Modifier</th>
+        </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        {% for piece in pieces %}
+            <tbody>
+            <tr>
+                <td>{{ piece.nom }}</td>
+                <td>{{ piece.surface }}</td>
+                <td>{{ piece.room }}</td>
+                <td><a href="#myModal" role="button" ><img src="/images/pieces/{{ piece.photo }}" width="100" height="auto"></a></td>
+
+                <td><a href="{{ path('piece_show', { 'id': piece.id }) }}">Voir</a></td>
+                <td> <a href="{{ path('piece_edit', { 'id': piece.id }) }}">Modifier</a></td>
+            </tr>
+
+            </tbody>
+        {% endfor %}
+        {{ form_start(form) }}
+        <tbody id="addFormLot">
+        <tr>
+            <td>{{ form_widget(form.nom, { 'attr': {'class': 'custom-select','placeholder': "Numero"} }) }}</td>
+            <td>{{ form_widget(form.surface, { 'attr': {'class': 'custom-select','placeholder': "Surface"} }) }}</td>
+            <td>{{ form_widget(form.room, { 'attr': {'class': 'custom-select'} }) }}</td>
+            <td>{{ form_widget(form.imageFile, { 'attr': {'class': 'custom-select'} }) }}</td>
+            <td><button type="submit" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-ok"></i></button></td>
+        </tr>
+        {{ form_end(form) }}
+        </tbody>
+
+        <!--Table body-->
+
+
+    </table>
+    </div>
+    <!--Table-->
+    <div id="btnAddLot" class="text-right">
+        <button type="submit" class="btn btn-success btn-circle btn-lg" title="Ajouter un lot"><i class="glyphicon glyphicon-plus"></i> </button>
+    </div>
+{% endblock %}

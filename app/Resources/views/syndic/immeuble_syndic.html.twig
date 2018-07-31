@@ -1,0 +1,66 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+    <h1>Syndic</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ syndic.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ syndic.nom }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ syndic.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Codepostal</th>
+            <td>{{ syndic.codePostal }}</td>
+        </tr>
+        <tr>
+            <th>Ville</th>
+            <td>{{ syndic.ville }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <h1>immeuble</h1>
+{% for immeuble in immeubles %}
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ immeuble.id }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ immeuble.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Code postal</th>
+            <td>{{ immeuble.codePostal }}</td>
+        </tr>
+        <tr>
+            <th>Ville</th>
+            <td>{{ immeuble.ville }}</td>
+        </tr>
+        <tr>
+            <th>reference</th>
+            <td>{{ immeuble.reference }}</td>
+        </tr>
+        <tr>
+            <th>Plan</th>
+            <td>{{ immeuble.plan }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+{% endfor %}
+
+{% endblock %}

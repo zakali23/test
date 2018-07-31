@@ -1,0 +1,15 @@
+{% extends "admin/base_admin.html.twig"%}
+
+
+{% block body %}
+    <h1>Ajouter un fournisseur</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Créer" class="new"/>
+    {{ form_end(form) }}
+
+
+        <a href="{{ path('fournisseurcompteur_index') }}">Liste des fournisseurs</a>
+
+{% endblock %}

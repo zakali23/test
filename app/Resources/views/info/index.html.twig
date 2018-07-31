@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Infos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Adresse</th>
+                <th>Message</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for info in infos %}
+            <tr>
+                <td><a href="{{ path('info_show', { 'id': info.id }) }}">{{ info.id }}</a></td>
+                <td>{{ info.nom }}</td>
+                <td>{{ info.prenom }}</td>
+                <td>{{ info.email }}</td>
+                <td>{{ info.telephone }}</td>
+                <td>{{ info.adresse }}</td>
+                <td>{{ info.message }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('info_show', { 'id': info.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

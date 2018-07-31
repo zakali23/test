@@ -1,0 +1,41 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
+
+            </tr>
+            <tr>
+                <td>{{ syndic.id }}</td>
+                <td>{{ syndic.nom }}</td>
+                <td>{{ syndic.adresse }}</td>
+                <td>{{ syndic.codePostal }}</td>
+                <td>{{ syndic.ville }}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('syndic_index') }}">Liste des syndicats</a>
+        </li>
+        <li>
+            <a href="{{ path('syndic_edit', { 'id': syndic.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer" class="supp">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

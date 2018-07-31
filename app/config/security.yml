@@ -1,0 +1,65 @@
+# app/config/security.yml
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_TECHNICIEN: ROLE_HABITANT
+        ROLE_SALARIE: ROLE_TECHNICIEN
+        ROLE_GESTION: ROLE_SALARIE
+        ROLE_ADMIN: ROLE_GESTION
+
+    access_denied_url: /login
+
+
+
+    providers:
+        in_memory:
+            memory: ~
+
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+        main:
+            remember_me:
+                secret:    '%secret%'
+                lifetime: 31536000 # 1 year in seconds
+                path:    /
+            pattern: ^/
+            #remember_me:
+            #    secret:   '%secret%'
+            #    lifetime: 1 # 1 week in seconds
+            #    path:     /
+                # by default, the feature is enabled by checking a
+                # checkbox in the login form (see below), uncomment the
+                # following line to always enable it.
+                #always_remember_me: true
+            form_login:
+                provider: fos_userbundle
+                remember_me: true
+                default_target_path: /profile_user
+            logout:       true
+
+            anonymous:    true
+
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~
+
+
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: [ROLE_ADMIN, ROLE_GESTION, ROLE_SALARIE] }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/immeuble/new$, role: ROLE_ADMIN }
+        - { path: ^/lot/new$, role: ROLE_ADMIN }
+        - { path: ^/piece/new$, role: ROLE_ADMIN }
+        - { path: ^/copro/new$, role: ROLE_ADMIN }

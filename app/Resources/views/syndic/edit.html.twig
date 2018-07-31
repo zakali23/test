@@ -1,0 +1,18 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+    <h1>Modification syndicat</h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <button type="submit" value="Edit" class="btn btn-warning modif ">Modifier</button>
+    {{ form_end(edit_form) }}
+
+
+    {{ form_start(delete_form) }}
+    <br><button type="submit" value="Delete" class="btn btn-danger supp ">Supprimer</button>
+    {{ form_end(delete_form) }}
+
+    <br><a href="{{ path('syndic_index') }}">Liste des syndicats</a>
+
+{% endblock %}

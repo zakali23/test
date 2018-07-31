@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Erreurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codeerreur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for erreur in erreurs %}
+            <tr>
+                <td><a href="{{ path('erreur_show', { 'id': erreur.id }) }}">{{ erreur.id }}</a></td>
+                <td>{{ erreur.codeErreur }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('erreur_show', { 'id': erreur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('erreur_edit', { 'id': erreur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('erreur_new') }}">Create a new erreur</a>
+        </li>
+    </ul>
+{% endblock %}

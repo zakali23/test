@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Info</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ info.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ info.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ info.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ info.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ info.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ info.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ info.message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('info_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

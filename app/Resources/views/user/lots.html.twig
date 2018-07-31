@@ -1,0 +1,29 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/user.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/head_admin.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>Trouvez Votre Appartement</h1><br>
+            <form >
+                <input class="form-control" type="search" placeholder="Chercher Par nom" id="listLots" aria-label="Search">
+            </form>
+
+        </div>
+    </div>
+
+<div class="container-fluid" >
+    <div id="Lots"></div>
+
+</div>
+
+
+
+<script src="{{ asset('build/ajax_lots.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965D"></script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Infocontacts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nominfo</th>
+                <th>Prenominfo</th>
+                <th>Emailinfo</th>
+                <th>Telephoneinfo</th>
+                <th>Adresseinfo</th>
+                <th>Messageinfo</th>
+                <th>Notification</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infoContact in infoContacts %}
+            <tr>
+                <td><a href="{{ path('infocontact_show', { 'id': infoContact.id }) }}">{{ infoContact.id }}</a></td>
+                <td>{{ infoContact.nomInfo }}</td>
+                <td>{{ infoContact.prenomInfo }}</td>
+                <td>{{ infoContact.emailInfo }}</td>
+                <td>{{ infoContact.telephoneInfo }}</td>
+                <td>{{ infoContact.adresseInfo }}</td>
+                <td>{{ infoContact.messageInfo }}</td>
+                <td>{% if infoContact.notification %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('infocontact_show', { 'id': infoContact.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('infocontact_edit', { 'id': infoContact.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('infocontact_new') }}">Create a new infoContact</a>
+        </li>
+    </ul>
+{% endblock %}

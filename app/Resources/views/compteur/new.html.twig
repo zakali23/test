@@ -1,0 +1,35 @@
+{% extends "admin/base_admin.html.twig"%}
+
+
+{% block body %}
+    <h1>Créer un compteur</h1>
+{{ form_start(form) }}
+        <label>Type de Compteur</label>
+        {{ form_widget(form.categorieCompteur) }}
+        {{ form_errors(form.categorieCompteur) }}
+        <label>Marque du Compteur</label>
+        {{ form_widget(form.marque) }}
+        {{ form_errors(form.marque) }}
+        <label>Référence du Compteur</label>
+        {{ form_widget(form.reference) }}
+        {{ form_errors(form.reference) }}
+        <label>Numéro de Série</label>
+        {{ form_widget(form.serialNumber) }}
+        {{ form_errors(form.serialNumber) }}
+        <label>Date d'Achat</label>
+        {{ form_widget(form.dateAchat) }}
+        {{ form_errors(form.dateAchat) }}
+        <label>Photo du Compteur</label>
+        {{ form_widget(form.imageFile) }}
+        {{ form_errors(form.imageFile) }}
+
+    {{ form_rest(form, {'required':false}) }}
+
+    <input type="submit" value="Create" class="new"/>
+
+    {{ form_end(form) }}
+
+
+            <a href="{{ path('compteur_index') }}">Liste des compteurs</a>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Liste d'utilisateur</h1>
+    </div>
+</div>
+
+
+    <ul id="people">
+        {% if listsSyndic is defined %}
+            {% if nomSyndic is not empty %}
+            <h1 class="text-center green-text">Syndicat: {{ nomSyndic }}</h1>
+            {% endif %}
+            {% for list in listsSyndic %}
+                <li>
+                <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
+                <h2>{{ list.firstname }} {{ list.lastname }}</h2>
+                <span class="info">
+                    <em> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ list.adresse }} {{ list.ville }} {{ list.codePostal }}</em><br>
+                    <a href="tel:{{ list.phone }}"><i class="fa fa-phone" aria-hidden="true"></i> {{ list.phone }}</a>
+                    <em><i class="fa fa-envelope-open" aria-hidden="true"></i> {{ list.email }}</em>
+                </span>
+            </li>
+            {% endfor %}
+            {% else %}
+        {% endif %}
+        
+        {% if listsAss is defined %}
+        {% if nomAssociation is not empty %}
+            <h1 class="text-center green-text"> Association de Copropriété: {{ nomAssociation }}</h1>
+        {% endif %}
+            {% for list in listsAss %}
+                <li>
+                    <a ><img src="{{ asset('images/man-user.svg') }}" /></a>
+                    <h2>{{ list.firstname }} {{ list.lastname }}</h2>
+                    <span class="info">
+                        <em> <i class="fa fa-map-marker" aria-hidden="true"></i> {{ list.adresse }} {{ list.ville }} {{ list.codePostal }}</em><br>
+                        <a href="tel:{{ list.phone }}"><i class="fa fa-phone" aria-hidden="true"></i> {{ list.phone }}</a>
+                    <em><i class="fa fa-envelope-open" aria-hidden="true"></i> {{ list.email }}</em>
+                    </em>
+                    </span>
+                </li>
+            {% endfor %}
+        {% endif %}
+
+    </ul>
+
+
+
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+

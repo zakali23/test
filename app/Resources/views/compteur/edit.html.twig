@@ -1,0 +1,95 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/user.css') }}">
+
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Installation d'un compteur</h1>
+    <div id="profil" class="card">
+        <div class="card-header">
+            <h3>Mon Matériel</h3>
+        </div>
+
+        <table class="table">
+            <tbody>
+
+            <tr>
+                <th>ID</th>
+                <td>{{ compteur.id }}</td>
+            </tr>
+            <tr>
+                <th id="typeCompteur">Type </th>
+                <td>{{ compteur.categorieCompteur }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ compteur.marque }}</td>
+            </tr>
+            <tr>
+                <th>Référence</th>
+                <td>{{ compteur.reference }}</td>
+            </tr>
+            <tr>
+                <th>Numéro de Série</th>
+                <td>{{ compteur.serialNumber }}</td>
+            </tr>
+            <tr>
+                <th>Date d'achat</th>
+                <td>{{ compteur.dateAchat|date("d/m/Y") }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="/images/compteur/{{ compteur.photo }}" width="100" height="auto"></td>
+            </tr>
+            </tbody>
+        </table>
+        {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        {{ form_end(edit_form) }}
+    </div>
+
+
+
+    {% if compteur.categorieCompteur.id == '1' %}
+        <section>
+            {% include 'radiateur/new.html.twig' %}
+        </section>
+    {% endif %}
+
+    <div id="profil" class="col-12 card">
+        <div class="card-header">
+            <form>
+                <p><b>Veuillez indiquer l'adresse ci-dessous</b></p>
+                Adresse : <input id="onkeyup" type="text" >
+            </form>
+            <h3>Immeubles</h3>
+        </div>
+        <label for="immeubleSelectCompteur">Adresse</label>
+        <select id="immeubleSelectCompteur" name="immeubleSelectCompteur" class="form-control" multiple="multiple" style="color:black;">
+        </select>
+
+        <label for="appartementSelectCompteur"> Appartements</label>
+        <select id="appartementSelectCompteur" name="appartementSelectCompteur" class="form-control" multiple="multiple" style="color:black;">
+        </select>
+
+        <label for="pieceSelectCompteur"> Pièces</label>
+        <select id="pieceSelectCompteur" name="pieceSelectCompteur" class="form-control" multiple="multiple" style="color:black;">
+        </select>
+    </div>
+
+
+
+    <form method="post" action="{{ path('compteurSubmit') }}">
+        <input id="envoiIdPiece" name="idPiece" value="idPiece" type="hidden">
+        <input id="envoiId" name="idCompteur" value="{{ compteur.id }}" type="hidden">
+        <input value="Envoyer" type="submit" class="new">
+    </form>
+</div>
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('build/user_edit.js')}}"></script>
+    <script src="{{ asset('build/ajax.js')}}"></script>
+    <script src="{{ asset('build/header_admin.js')}}"></script>
+
+{% endblock %}

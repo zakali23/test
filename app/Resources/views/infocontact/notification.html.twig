@@ -1,0 +1,51 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+
+    <h1 class="text-center">Liste de Messages non lus</h1>
+
+
+<div class="table-responsive">
+    <form method="post" action="{{ path('infocontact_notif') }}">
+        <button  type="submit" class="btn btn-info" >marqué comme lu</button>
+    <table class="table">
+
+        <!--Table head-->
+        <thead>
+        <tr>
+
+
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Email</th>
+            <th scope="col">telephone</th>
+            <th scope="col">message</th>
+            <th scope="col">adresse</th>
+            <th scope="col">lu</th>
+            
+        </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        {% for notification in notifications %}
+            <tbody>
+            <tr>
+
+
+                <td>{{ notification.nomInfo }}</td>
+                <td>{{ notification.prenomInfo }}</td>
+                <td>{{ notification.emailInfo }}</td>
+                <td>{{ notification.telephoneInfo }}</td>
+                <td>{{ notification.messageInfo }}</td>
+                <td>{{ notification.adresseInfo }}</td>
+                <td><input type="checkbox" value="{{ notification.id }}" name="id{{ notification.id }}"></td>
+            </tr>
+
+            </tbody>
+        {% endfor %}
+    </table>
+    </form>
+</div>
+{% endblock %}
+

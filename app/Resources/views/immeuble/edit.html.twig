@@ -1,0 +1,18 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+    <h1>Modifier l'immeuble</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Modifier" class="modif" />
+    {{ form_end(edit_form) }}
+
+
+
+    {{ form_start(delete_form) }}
+    <br><input type="submit" value="Supprimer" class="supp">
+    {{ form_end(delete_form) }}
+
+    <br><a href="{{ path('immeuble_new') }}">Liste des immeubles</a>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+    <h1>Syndic</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ syndic.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ syndic.nom }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ syndic.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Codepostal</th>
+            <td>{{ syndic.codePostal }}</td>
+        </tr>
+        <tr>
+            <th>Ville</th>
+            <td>{{ syndic.ville }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <h1>lot</h1>
+{% for lot in lots %}
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ lot.id }}</td>
+        </tr>
+        <tr>
+            <th>numero</th>
+            <td>{{ lot.numero }}</td>
+        </tr>
+        <tr>
+            <th>Surface</th>
+            <td>{{ lot.surface }}</td>
+        </tr>
+        <tr>
+            <th>Etage</th>
+            <td>{{ lot.etage }}</td>
+        </tr>
+        <tr>
+            <th>reference</th>
+            <td>{{ lot.reference }}</td>
+        </tr>
+        <tr>
+            <th>photo</th>
+            <td>{{ lot.photo }}</td>
+        </tr>
+        <tr>
+            <th>Tantieme</th>
+            <td>{{ lot.tantieme }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+{% endfor %}
+
+{% endblock %}

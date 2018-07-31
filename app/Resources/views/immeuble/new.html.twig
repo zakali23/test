@@ -1,0 +1,63 @@
+{% extends "admin/base_admin.html.twig"%}
+
+
+{% block body %}
+    <table class="table">
+
+        <!--Table head-->
+        <thead>
+        <tr>
+
+
+            <th scope="col">Batiment</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Code postal</th>
+            <th scope="col">Ville</th>
+            <th scope="col">Plan</th>
+            <th scope="col">Réference</th>
+            <th scope="col">Voir</th>
+            <th scope="col">Modifier</th>
+        </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        {% for immeuble in immeubles %}
+            <tbody>
+            <tr>
+                <td>{{ immeuble.batiment }}</td>
+                <td>{{ immeuble.adresse }}</td>
+                <td>{{ immeuble.codePostal }}</td>
+                <td>{{ immeuble.ville }}</td>
+                <td><a href="#myModal" role="button" ><img src="/images/immeuble/{{ immeuble.plan }}" width="100" height="auto"></a></td>
+                <td>{{ immeuble.reference }}</td>
+                <td><a href="{{ path('immeuble_show', { 'id': immeuble.id }) }}">Voir</a></td>
+                <td> <a href="{{ path('immeuble_edit', { 'id': immeuble.id }) }}">Modifier</a></td>
+            </tr>
+
+            </tbody>
+        {% endfor %}
+        {{ form_start(form) }}
+        <tbody id="addFormLot">
+        <tr>
+            <td>{{ form_widget(form.batiment, { 'attr': {'class': 'custom-select'} }) }}</td>
+            <td>{{ form_widget(form.adresse, { 'attr': {'class': 'custom-select','placeholder': "Adresse"} }) }}</td>
+            <td>{{ form_widget(form.codePostal, { 'attr': {'class': 'custom-select','placeholder': "Code Postal"} }) }}</td>
+            <td>{{ form_widget(form.ville, { 'attr': {'class': 'custom-select','placeholder': "ville"} }) }}</td>
+            <td>{{ form_widget(form.planFile, { 'attr': {'class': 'custom-select'} }) }}</td>
+            <td>{{ form_widget(form.reference, { 'attr': {'class': 'custom-select','placeholder': "Reference"} }) }}</td>
+            <td><button type="submit" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-ok"></i></button></td>
+        </tr>
+        {{ form_end(form) }}
+        </tbody>
+
+        <!--Table body-->
+
+
+    </table>
+    </div>
+    <!--Table-->
+    <div id="btnAddLot" class="text-right">
+        <button type="submit" class="btn btn-success btn-circle btn-lg" title="Ajouter un lot"><i class="glyphicon glyphicon-plus"></i> </button>
+    </div>
+{% endblock %}

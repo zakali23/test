@@ -1,0 +1,66 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+<h1 class="text-center green-text">Liste des syndicats</h1>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Code postal</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Gestionnaire</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                <th scope="col">Actions</th>
+                {% endif %}
+            </tr>
+
+        </thead>
+        <tbody>
+
+    {% if is_granted('ROLE_ADMIN')%}
+        {% for syndic in syndics %}
+            <tr>
+                <td><a href="{{ path('syndic_show', { 'id': syndic.id }) }}">{{ syndic.id }}</a></td>
+                <td>{{ syndic.nom }}</td>
+                <td>{{ syndic.adresse }}</td>
+                <td>{{ syndic.codePostal }}</td>
+                <td>{{ syndic.ville }}</td>
+                {% if syndic.gestionnaire is not empty %}
+                <td>{{ syndic.gestionnaire }}</td>
+                {% else %}
+                <td>Pas gestionnaire</td>
+                {% endif %}
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('syndic_show', { 'id': syndic.id }) }}">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('syndic_edit', { 'id': syndic.id }) }}">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+
+    {% elseif is_granted('ROLE_GESTION') %}
+        {% for syndic in user.syndics %}
+            <tr>
+                <td><a href="{{ path('syndic_show', { 'id': syndic.id }) }}">{{ syndic.id }}</a></td>
+                <td>{{ syndic.nom }}</td>
+                <td>{{ syndic.adresse }}</td>
+                <td>{{ syndic.codePostal }}</td>
+                <td>{{ syndic.ville }}</td>
+
+            </tr>
+        {% endfor %}
+    {% endif %}
+        </tbody>
+    </table>
+
+
+    {% endblock %}

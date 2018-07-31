@@ -1,0 +1,50 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+    <h1>Liste des compteurs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Serial number</th>
+                <th>Photo</th>
+                <th>Date d'installation</th>
+                <th>Date d'achat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compteur in compteurs %}
+            <tr>
+                <td><a href="{{ path('compteur_show', { 'id': compteur.id }) }}">{{ compteur.id }}</a></td>
+                <td>{{ compteur.serialNumber }}</td>
+                <td><a href="#myModal" role="button" ><img src="/images/compteur/{{ compteur.photo }}" width="100" height="auto"></a></td>
+                <td>{{ compteur.isInstalled }}</td>
+                {% if compteur.isInstalled == true %}
+                <td>{% if compteur.dateInstallation %}{{ compteur.dateInstallation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if compteur.dateAchat %}{{ compteur.dateAchat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                {% else %}
+                <td> - </td>
+                <td> - </td>
+                {% endif %}
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('compteur_show', { 'id': compteur.id }) }}">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('compteur_edit', { 'id': compteur.id }) }}">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('compteur_new') }}">Créer un nouveau compteur</a>
+        </li>
+    </ul>
+{% endblock %}

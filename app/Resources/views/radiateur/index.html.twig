@@ -1,0 +1,48 @@
+{% extends "admin/base_admin.html.twig"%}
+
+
+{% block body %}
+    <h1>Liste des radiateurs</h1>
+
+    <table class="table table-striped table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Modèle</th>
+                <th>Hauteur</th>
+                <th>Longueur</th>
+                <th>Puissancedeltat50</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for radiateur in radiateurs %}
+            <tr>
+                <td><a href="{{ path('radiateur_show', { 'id': radiateur.id }) }}">{{ radiateur.id }}</a></td>
+                <td>{{ radiateur.type }}</td>
+                <td>{{ radiateur.modele }}</td>
+                <td>{{ radiateur.hauteur }}</td>
+                <td>{{ radiateur.longueur }}</td>
+                <td>{{ radiateur.puissanceDeltaT50 }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('radiateur_show', { 'id': radiateur.id }) }}">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('radiateur_edit', { 'id': radiateur.id }) }}">éditer</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('radiateur_new') }}">Ajouter un nouveau radiateur</a>
+        </li>
+    </ul>
+{% endblock %}

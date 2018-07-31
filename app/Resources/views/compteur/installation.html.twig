@@ -1,0 +1,42 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+
+    <h1 class="text-center green-text">Liste des Compteurs</h1>
+    <div class="table-responsive">
+        <table class="table">
+
+            <!--Table head-->
+            <thead>
+            <tr>
+
+
+                <th scope="col">Type</th>
+                <th scope="col">Marque</th>
+                <th scope="col">Référence</th>
+                <th scope="col">Numéro de Série</th>
+                <th scope="col">Date d'Achat</th>
+                <th scope="col">Photo</th>
+
+            </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            {% for compteur in compteurs %}
+                <tbody>
+                <tr>
+                    <td>{{ compteur.categorieCompteur }}</td>
+                    <td>{{ compteur.marque }}</td>
+                    <td>{{ compteur.reference }}</td>
+                    <td>{{ compteur.serialNumber }}</td>
+                    <td>{{ compteur.dateAchat|date("d/m/Y") }}</td>
+                        <td><a href="#myModal" role="button" ><img src="/images/compteur/{{ compteur.photo }}" width="100" height="auto"></a></td>
+                    <td><a href="{{ path('compteur_edit', { 'id': compteur.id }) }}">Installer ce Compteur</a></td>
+                </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

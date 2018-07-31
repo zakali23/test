@@ -1,0 +1,316 @@
+<?php
+
+namespace AppBundle\Entity;
+
+/**
+ * Copro
+ */
+class Copro
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $adresse;
+
+    /**
+     * @var int
+     */
+    private $codePostal;
+
+    /**
+     * @var string
+     */
+    private $ville;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $syndics;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $assoCopro;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $batiments;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->syndics = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->assoCopro = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->batiments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name.
+     *
+     * @param string $name
+     *
+     * @return Copro
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set adresse.
+     *
+     * @param string $adresse
+     *
+     * @return Copro
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse.
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set codePostal.
+     *
+     * @param int $codePostal
+     *
+     * @return Copro
+     */
+    public function setCodePostal($codePostal)
+    {
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codePostal.
+     *
+     * @return int
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * Set ville.
+     *
+     * @param string $ville
+     *
+     * @return Copro
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville.
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Add syndic.
+     *
+     * @param \AppBundle\Entity\Syndic $syndic
+     *
+     * @return Copro
+     */
+    public function addSyndic(\AppBundle\Entity\Syndic $syndic)
+    {
+        $this->syndics[] = $syndic;
+
+        return $this;
+    }
+
+    /**
+     * Remove syndic.
+     *
+     * @param \AppBundle\Entity\Syndic $syndic
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeSyndic(\AppBundle\Entity\Syndic $syndic)
+    {
+        return $this->syndics->removeElement($syndic);
+    }
+
+    /**
+     * Get syndics.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSyndics()
+    {
+        return $this->syndics;
+    }
+
+    /**
+     * Add assoCopro.
+     *
+     * @param \AppBundle\Entity\associationCoPro $assoCopro
+     *
+     * @return Copro
+     */
+    public function addAssoCopro(\AppBundle\Entity\associationCoPro $assoCopro)
+    {
+        $this->assoCopro[] = $assoCopro;
+
+        return $this;
+    }
+
+    /**
+     * Remove assoCopro.
+     *
+     * @param \AppBundle\Entity\associationCoPro $assoCopro
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeAssoCopro(\AppBundle\Entity\associationCoPro $assoCopro)
+    {
+        return $this->assoCopro->removeElement($assoCopro);
+    }
+
+    /**
+     * Get assoCopro.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAssoCopro()
+    {
+        return $this->assoCopro;
+    }
+
+    /**
+     * Add batiment.
+     *
+     * @param \AppBundle\Entity\Immeuble $batiment
+     *
+     * @return Copro
+     */
+    public function addBatiment(\AppBundle\Entity\Immeuble $batiment)
+    {
+        $this->batiments[] = $batiment;
+
+        return $this;
+    }
+
+    /**
+     * Remove batiment.
+     *
+     * @param \AppBundle\Entity\Immeuble $batiment
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeBatiment(\AppBundle\Entity\Immeuble $batiment)
+    {
+        return $this->batiments->removeElement($batiment);
+    }
+
+    /**
+     * Get batiments.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBatiments()
+    {
+        return $this->batiments;
+    }
+}
+rine\Common\Collections\Collection
+     */
+    public function getAssoCopro()
+    {
+        return $this->assoCopro;
+    }
+
+    /**
+     * Add batiment.
+     *
+     * @param \AppBundle\Entity\Immeuble $batiment
+     *
+     * @return CoPro
+     */
+    public function addBatiment(\AppBundle\Entity\Immeuble $batiment)
+    {
+        $this->batiments[] = $batiment;
+
+        return $this;
+    }
+
+    /**
+     * Remove batiment.
+     *
+     * @param \AppBundle\Entity\Immeuble $batiment
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeBatiment(\AppBundle\Entity\Immeuble $batiment)
+    {
+        return $this->batiments->removeElement($batiment);
+    }
+
+    /**
+     * Get batiments.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBatiments()
+    {
+        return $this->batiments;
+    }
+}

@@ -1,0 +1,39 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+<h1>Description lot</h1>
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>Surface</th>
+                <th>Etage</th>
+                <th>Photo</th>
+
+            </tr>
+            <tr>
+                <td>{{ lot.id }}</td>
+                <td>{{ lot.numero }}</td>
+                <td>{{ lot.surface }} m2</td>
+                <td>{{ lot.etage }}</td>
+                <td><a href="#myModal" role="button" ><img src="/images/lot/{{ lot.photo }}" width="100" height="auto"></a></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lot_new') }}">Liste des lots</a>
+        </li>
+        <li>
+            <a href="{{ path('lot_edit', { 'id': lot.id }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="supp">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

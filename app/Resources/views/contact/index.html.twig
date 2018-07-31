@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Contacts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Vousetes</th>
+                <th>Voussouhaitez</th>
+                <th>Civilitecontact</th>
+                <th>Nomcontact</th>
+                <th>Prenomcontact</th>
+                <th>Emailcontact</th>
+                <th>Phonecontact</th>
+                <th>Adressecontact</th>
+                <th>Nomsyndic</th>
+                <th>Adressesyndic</th>
+                <th>Phonesyndic</th>
+                <th>Emailsyndic</th>
+                <th>Nomresidence</th>
+                <th>Adresseresidence</th>
+                <th>Dateag</th>
+                <th>Nblogement</th>
+                <th>Immeuble</th>
+                <th>Message</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td><a href="{{ path('contact_show', { 'id': contact.id }) }}">{{ contact.id }}</a></td>
+                <td>{{ contact.vousEtes }}</td>
+                <td>{{ contact.vousSouhaitez }}</td>
+                <td>{{ contact.civiliteContact }}</td>
+                <td>{{ contact.nomContact }}</td>
+                <td>{{ contact.prenomContact }}</td>
+                <td>{{ contact.emailContact }}</td>
+                <td>{{ contact.phoneContact }}</td>
+                <td>{{ contact.adresseContact }}</td>
+                <td>{{ contact.nomSyndic }}</td>
+                <td>{{ contact.adresseSyndic }}</td>
+                <td>{{ contact.phoneSyndic }}</td>
+                <td>{{ contact.emailSyndic }}</td>
+                <td>{{ contact.nomResidence }}</td>
+                <td>{{ contact.adresseResidence }}</td>
+                <td>{% if contact.dateAG %}{{ contact.dateAG|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ contact.nblogement }}</td>
+                <td>{{ contact.immeuble }}</td>
+                <td>{{ contact.message }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('contact_show', { 'id': contact.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('contact_edit', { 'id': contact.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('contact_new') }}">Create a new contact</a>
+        </li>
+    </ul>
+{% endblock %}

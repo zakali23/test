@@ -1,0 +1,27 @@
+{% extends "admin/base_admin.html.twig"%}
+{% block body %}
+    <h1>Mesure</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mesure.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mesure_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('mesure_edit', { 'id': mesure.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

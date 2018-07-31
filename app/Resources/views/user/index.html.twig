@@ -1,0 +1,66 @@
+{% extends "admin/base_admin.html.twig"%}
+
+{% block body %}
+
+<h1 class="text-center green-text">Liste des utilisateurs</h1>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Code postal</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Email</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Date d'entrée</th>
+                <th scope="col">Date de sortie</th>
+                <th scope="col">Statut</th>
+                <th scope="col">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for user in users %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.adresse }}</td>
+                <td>{{ user.codePostal }}</td>
+                <td>{{ user.ville }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{% if user.dateEntree %}{{ user.dateEntree|date('d-m-Y') }}{% endif %}</td>
+                <td>{% if user.dateSortie %}{{ user.dateSortie|date('d-m-Y') }}{% endif %}</td>
+               {% for role in user.typeLocProps %}
+                <td>{{ role.nom }}</td>
+
+        {% endfor %}
+
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_show', { 'id': user.id }) }}">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_edit', { 'id': user.id }) }}">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <ul>
+        <li>
+            <a href="/register">Créer un nouvel utilisateur</a>
+        </li>
+    </ul>
+
+{% endblock %}

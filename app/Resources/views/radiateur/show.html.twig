@@ -1,0 +1,49 @@
+{% extends "admin/base_admin.html.twig"%}
+
+
+{% block body %}
+    <h1>Radiateur</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ radiateur.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ radiateur.type }}</td>
+            </tr>
+            <tr>
+                <th>Modèle</th>
+                <td>{{ radiateur.modele }}</td>
+            </tr>
+            <tr>
+                <th>Hauteur</th>
+                <td>{{ radiateur.hauteur }}</td>
+            </tr>
+            <tr>
+                <th>Longueur</th>
+                <td>{{ radiateur.longueur }}</td>
+            </tr>
+            <tr>
+                <th>Puissancedeltat50</th>
+                <td>{{ radiateur.puissanceDeltaT50 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('radiateur_index') }}">Retour à la liste</a>
+        </li>
+        <li>
+            <a href="{{ path('radiateur_edit', { 'id': radiateur.id }) }}">Éditer</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

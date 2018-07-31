@@ -1,0 +1,179 @@
+
+    <section class="jumbotron text-center" id="contactInfo">
+        <div class="container">
+            <div class=" animated fadeInRight ">
+                <br><br>
+                <hr class="trait">
+                <h1 class="titreAccueil text-center text-monospace text-uppercase">Contactez-nous</h1>
+                <hr class="trait">
+                <br><br>
+            </div>
+            <p class="lead text-muted">
+                Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d'un droit d'accès et de rectification aux informations qui vous concernent. Si vous souhaitez exercer ce droit et obtenir la communication des informations vous concernant, toute demande en ce sens transmise doit être transmise au responsable de traitement
+                via l'adresse postale  ou via l'email.
+            </p>
+            <i data-feather="alert-triangle" style="color:red;"></i> * Champs obligatoires.
+            <br>
+            <br>
+            <section class="contact-section col-md-12">
+
+                <!-- Form with header -->
+                <div class="card">
+
+                    <!-- Grid row -->
+                    <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-lg-8">
+                            {{ form_start(formInfo, { 'attr': {'id': 'info'} } ) }}
+                            <div class="card-body form">
+
+                                <!-- Header -->
+                                <h3 id="test" class="mt-4"><i class="fa fa-envelope pr-2"></i>Contactez-nous:</h3>
+
+                                <!-- Grid row -->
+                                <div class="row">
+
+
+                                    <!-- Grid column -->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+
+                                            {{ form_widget(formInfo.nomInfo, { 'attr': {'class': 'form-control text-uppercase'} }) }}
+                                            <label for="form-contact-name" class="nom">Votre nom</label>
+                                            <p id="nom_id" class="text-left red-text animated bounce">Veuillez saisir votre nom s'il vous plaît</p>
+                                            <p id="nom_valid" class="text-left red-text animated bounce">Veuillez saisir un nom valide s'il vous plaît</p>
+                                        </div>
+                                    </div>
+                                    <!-- Grid column -->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(formInfo.prenomInfo, { 'attr': {'class': 'form-control text-capitalize'} }) }}
+                                            <label for="form-contact-name" class="">Votre prenom</label>
+                                            <p id="prenom_id" class="text-left red-text animated bounce">Veuillez saisir votre prenom s'il vous plaîts.</p>
+                                            <p id="prenom_valid" class="text-left red-text animated bounce">Veuillez saisir un prenom valide s'il vous plaît</p>
+
+                                        </div>
+                                    </div>
+                                    <!-- Grid column -->
+
+
+                                    <!-- Grid column -->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(formInfo.emailInfo, { 'attr': {'class': 'form-control'} }) }}
+                                            <label for="form-contact-email" class="">Votre email</label>
+                                            <p id="email_id" class="text-left red-text animated bounce">Veuillez saisir une adresse mail correcte s'il vous plaîts.</p>
+                                            <p id="email_valid" class="text-left red-text animated bounce">Veuillez saisir une adresse email valide s'il vous plaît</p>
+
+                                        </div>
+                                    </div>
+                                    <!-- Grid column -->
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(formInfo.telephoneInfo, { 'attr': {'class': 'form-control'} }) }}
+                                            <label for="form-contact-phone" class="">Votre téléphone</label>
+                                            <p id="telephone_id" class="text-left red-text animated bounce">Veuillez saisir votre téléphone s'il vous plaîts.</p>
+                                            <p id="telephone_valid" class="text-left red-text animated bounce">Veuillez saisir un numero de téléphone valide s'il vous plaît</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Grid row -->
+
+                                <!-- Grid row -->
+                                <div class="row">
+
+                                    <!-- Grid column -->
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(formInfo.adresseInfo, { 'attr': {'class': 'form-control', 'placeholder': ""} }) }}
+                                            <label for="form-contact-company" class="">Votre adresse</label>
+                                            <p id="adresse_id" class="text-left red-text animated bounce">Veuillez saisir votre adresse s'il vous plaîts.</p>
+
+                                        </div>
+                                    </div>
+                                    <!-- Grid column -->
+
+                                </div>
+                                <!-- Grid row -->
+
+                                <!-- Grid row -->
+                                <div class="row">
+
+                                    <!-- Grid column -->
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            {{ form_widget(formInfo.messageInfo, { 'attr': {'class': 'form-control md-textarea'} }) }}
+                                            <label for="form-contact-message">Votre message</label>
+                                            {{ form_row(formInfo._token) }}
+                                            <button type="submit" class="btn btn-outline-success waves-effect" id="Envoyer">Envoyer <i class="fab fa-telegram-plane"></i></button>
+
+
+                                        </div>
+                                    </div>
+                                    <!-- Grid column -->
+
+                                </div>
+                                <!-- Grid row -->
+
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-4">
+
+                            <div class="card-body contact text-center h-100 white-text">
+
+                                <h3 class="my-4 pb-2 white-text">Nos Coordonnées</h3>
+                                <hr class="hr-light my-4">
+                                <ul class="text-lg-left list-unstyled ml-4">
+                                    <li>
+                                        <p class="contact-adresse text-center white-text"><i data-feather="mail"></i> Email :</p>
+                                        <p class="contact-adresse text-center white-color">contact@caldex.fr</p>
+                                    </li>
+                                    <li>
+                                        <p class="contact-adresse text-center white-text"><i data-feather="phone"></i> Téléphone :</p>
+                                        <p class="contact-adresse text-center white-color">03 86 68 56 51</p>
+                                    </li>
+                                    <li>
+                                        <p class="contact-adresse text-center white-text"><i data-feather="map-pin"></i> Adresse :</p>
+                                        <p class="contact-adresse text-center white-color">Strasbourg, 67000, FRANCE</p>
+
+                                    </li>
+
+                                </ul>
+
+
+                            </div>
+
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row -->
+
+                </div>
+                <!-- Form with header -->
+
+            </section>
+
+        </div>
+    </section>
+
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success">
+            {% for msg in app.session.flashBag.get('success') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+<!-- Section: Contact v.3 -->
+
+
+<!-- Section: Contact v.3 -->
+
+
+
